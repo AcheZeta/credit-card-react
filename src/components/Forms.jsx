@@ -44,35 +44,35 @@ const Form = () => {
         name="cardNumber" 
         id="cardNumber" 
         placeholder="Card Number"
-        onChange={handleInputChange}
+        onKeyUp={handleInputChange}
         />
         <CardInput 
         type="text" 
         name="cardName" 
         id="cardname" 
         placeholder="Card Name"
-        onChange={handleInputChange}
+        onKeyUp={handleInputChange}
         />
         <CardInput 
         type="number" 
         name="Month" 
         id="month" 
         placeholder="Month"
-        onChange={handleInputChange}
+        onKeyUp={handleInputChange}
         />
         <CardInput
         type="number" 
         name="Year" 
         id="year" 
         placeholder="Year" 
-        onChange={handleInputChange}
+        onKeyUp={handleInputChange}
         />
         <CardInput 
         type="password" 
         name="CVV" 
         id="ccv" 
         placeholder="CCV"
-        onChange={handleInputChange}
+        onKeyUp={handleInputChange}
         />
     </FormComponent>
     )
