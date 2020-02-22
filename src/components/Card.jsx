@@ -4,15 +4,15 @@ import styled from 'styled-components'
 
 const CreditasCard = styled.div`
     display: inline-block;
-    width: 400px;
-    height: 250px;
+    width: 340px;
+    height: 210px;
     background: linear-gradient(48deg,#17a19d,#00e67c);
     border-radius: 15px;
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
     padding: 5px;
 `
 const CreditasCardLogo = styled.img`
-    width: 40%;
+    width: 50px;
 `
 const CardInfoSection = styled.div`
     font-size: 20px;
@@ -40,7 +40,7 @@ const CardInfo = styled.div`
 export default () => {
     return (
         <CreditasCard>
-            <CreditasCardLogo src="https://www.vostokemergingfinance.com/wp-content/uploads/2017/12/Logo.png" alt="Logo">
+            <CreditasCardLogo src="https://loremipsum.io/assets/images/wasai-logo.png" alt="Logo">
             </CreditasCardLogo>
             <CardNumber>#### #### #### ####</CardNumber>
             <CardInfo>

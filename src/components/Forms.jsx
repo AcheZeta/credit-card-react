@@ -1,12 +1,81 @@
 /* eslint-disable no-unused-vars */
-import React from 'react'
+import React, {useState} from 'react'
+import styled from 'styled-components'
 
-const Form = () => (
-    <div>
-        <input type="text" name="cardName" id="name" placeholder="Card Name"/>
-    <input type="number" name="CardNumber" id="number" placeholder="Card Number"/>
-    <input type="password" name="passport" id=""/>
-    </div>
-)
+const FormComponent = styled.div`
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-column-gap: 2rem;
+  grid-row-gap: 0.5em;
+  justify-items: center;
+  padding: 1%;
+`
+const CardInput = styled.input`
+    width: 100%;
+    padding: .75rem;
+    border: .0625em solid #ddd;
+    border-radius: 15px;
+    font-size: 20px;
+    text-transform: uppercase;
+`
+
+const Form = () => {
+    const [mydata, setData] = useState({
+        cardNumber: '',
+        cardName: '',
+        Month: 0,
+        Year: 0,
+        CVV: ''
+    })
+    
+    const handleInputChange = (event) => {
+        console.log(event.target.value)
+        setData({
+            ...mydata,
+            [event.target.name] : event.target.value
+        })
+        console.log(mydata)
+    }
+
+    return (
+    <FormComponent>
+        <CardInput 
+        type="text" 
+        name="cardNumber" 
+        id="cardNumber" 
+        placeholder="Card Number"
+        onChange={handleInputChange}
+        />
+        <CardInput 
+        type="text" 
+        name="cardName" 
+        id="cardname" 
+        placeholder="Card Name"
+        onChange={handleInputChange}
+        />
+        <CardInput 
+        type="number" 
+        name="Month" 
+        id="month" 
+        placeholder="Month"
+        onChange={handleInputChange}
+        />
+        <CardInput
+        type="number" 
+        name="Year" 
+        id="year" 
+        placeholder="Year" 
+        onChange={handleInputChange}
+        />
+        <CardInput 
+        type="password" 
+        name="CVV" 
+        id="ccv" 
+        placeholder="CCV"
+        onChange={handleInputChange}
+        />
+    </FormComponent>
+    )
+}
 
 export default Form
