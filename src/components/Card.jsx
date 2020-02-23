@@ -60,7 +60,7 @@ const Card = props => {
                 </CardInfoSection>
                 <CardInfoSection>
                     <CardInfoLabel>Expires</CardInfoLabel>
-                    <CardInformation>{cardState.Month}/{cardState.Year}/{cardState.CVV}</CardInformation>
+                    <CardInformation>{cardState.Month}/{cardState.Year}</CardInformation>
                 </CardInfoSection>
             </CardInfo>
         </CreditasCard >
