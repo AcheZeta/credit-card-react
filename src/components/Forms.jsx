@@ -18,6 +18,9 @@ const CardInput = styled.input`
     border-radius: 15px;
     font-size: 20px;
     text-transform: uppercase;
+    :focus {
+    border: 2px solid #00e67c;
+  }
 `
 
 const Form = () => {
@@ -34,7 +37,6 @@ const Form = () => {
             ...state,
             [event.target.name] : event.target.value
         })
-        console.log(state);
     }
 
     return (
@@ -45,7 +47,8 @@ const Form = () => {
         name="cardNumber" 
         id="cardNumber" 
         placeholder="Card Number"
-        onKeyUp={handleInputChange}
+        pattern="[0-9]*"
+        onChange={handleInputChange}
         />
         <CardInput 
         type="text" 
