@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, {useState} from 'react'
 import styled from 'styled-components'
+import Card from '../components/Card'
 
 const FormComponent = styled.div`
   display: grid;
@@ -20,25 +21,25 @@ const CardInput = styled.input`
 `
 
 const Form = () => {
-    const [mydata, setData] = useState({
-        cardNumber: '',
-        cardName: '',
-        Month: 0,
-        Year: 0,
-        CVV: ''
-    })
+    const [state, setState] = useState({
+        cardNumber: 'XXXX XXXX XXXX',
+        cardName: 'Lorem Ipsum',
+        Month: 'Month',
+        Year: 'Year',
+        CVV: 'CVV'
+      });
     
     const handleInputChange = (event) => {
-        console.log(event.target.value)
-        setData({
-            ...mydata,
+        setState({
+            ...state,
             [event.target.name] : event.target.value
         })
-        console.log(mydata)
+        console.log(state);
     }
 
     return (
     <FormComponent>
+        <Card {...state} />
         <CardInput 
         type="text" 
         name="cardNumber" 

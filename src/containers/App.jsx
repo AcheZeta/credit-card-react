@@ -2,7 +2,6 @@
 import React from 'react'
 import { createGlobalStyle } from 'styled-components'
 import Form from '../components/Forms'
-import Card from '../components/Card'
 import Main from '../components/Container'
 
 const GlobalStyle = createGlobalStyle`
@@ -13,12 +12,15 @@ const GlobalStyle = createGlobalStyle`
     background: #d3e9fc;
   }
 `
-const App = () => (
+
+const App = () => {
+
+  return (
     <Main>
       <GlobalStyle />
-      <Card />
       <Form />
     </Main>
-)
+  );
+};
 
 export default App

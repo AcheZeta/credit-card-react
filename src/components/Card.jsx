@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React from 'react'
+import React, { useState, useEffect } from "react";
 import styled from 'styled-components'
 
 const CreditasCard = styled.div`
@@ -36,24 +36,49 @@ const CardInfo = styled.div`
     padding: 15px;
     bottom: 5px;
 `
-
-export default () => {
+const Card = props => {
+    const [cardState, setProfileState] = useState(props);
+    // console.log(cardState, setProfileState)
+  
+    useEffect(() => {
+      setProfileState(props);
+    }, [props]);
+  
     return (
         <CreditasCard>
-            <CreditasCardLogo src="https://loremipsum.io/assets/images/wasai-logo.png" alt="Logo">
-            </CreditasCardLogo>
-            <CardNumber>#### #### #### ####</CardNumber>
-            <CardInfo>
-                <CardInfoSection>
-                    <CardInfoLabel>Card Holder</CardInfoLabel>
-                    <CardInformation>Ad Soyad</CardInformation>
-                </CardInfoSection>
-                <CardInfoSection>
-                    <CardInfoLabel>Expires</CardInfoLabel>
-                    <CardInformation>06/2027</CardInformation>
-                </CardInfoSection>
-            </CardInfo>
-        </CreditasCard>
-    )
-}
+        <CreditasCardLogo src="https://loremipsum.io/assets/images/wasai-logo.png" alt="Logo">
+        </CreditasCardLogo>
+        <CardNumber>{cardState.cardNumber}</CardNumber>
+        <CardInfo>
+            <CardInfoSection>
+                <CardInfoLabel>Card Holder</CardInfoLabel>
+                <CardInformation>{cardState.cardName}</CardInformation>
+            </CardInfoSection>
+            <CardInfoSection>
+                <CardInfoLabel>Expires</CardInfoLabel>
+                <CardInformation>{cardState.Month}/{cardState.Year}/{cardState.CVV}</CardInformation>
+            </CardInfoSection>
+        </CardInfo>
+    </CreditasCard >
+    );
+  };
+/* const Card = ({ info }) => (
+    <CreditasCard>
+        <CreditasCardLogo src="https://loremipsum.io/assets/images/wasai-logo.png" alt="Logo">
+        </CreditasCardLogo>
+            <p>{info}</p>
+        <CardNumber>#### #### #### ####</CardNumber>
+        <CardInfo>
+            <CardInfoSection>
+                <CardInfoLabel>Card Holder</CardInfoLabel>
+                <CardInformation>sda </CardInformation>
+            </CardInfoSection>
+            <CardInfoSection>
+                <CardInfoLabel>Expires</CardInfoLabel>
+                <CardInformation>06/2027</CardInformation>
+            </CardInfoSection>
+        </CardInfo>
+    </CreditasCard >
+) */
 
+export default Card
