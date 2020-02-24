@@ -1,6 +1,10 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import styled from 'styled-components'
+import visaLogo from '../assets/visaLogo.png'
+import mastercardLogo from '../assets/mastercardLogo.png'
+import amexLogo from '../assets/amexLogo.png'
+import loremLogo from '../assets/wasai-logo.png'
 
 const CreditasCard = styled.div`
     display: inline-block;
@@ -39,18 +43,37 @@ const CardInfo = styled.div`
     padding: 15px;
     bottom: 5px;
 `
+const cardTypeLogo = {
+    'MASTERCARD': mastercardLogo,
+    'VISA': visaLogo,
+    'AMEX': amexLogo
+};
 
 const Card = props => {
-    const [cardState, setProfileState] = useState(props);
-    // console.log(cardState, setProfileState)
+    const [cardState, setCardState] = useState(props);
+    console.log(cardState.cardNumber)
+
+    let notification = (cardNum) => {
+        if (cardNum.charAt(0) === '4') {
+          return visaLogo;
+        }
+        if (cardNum.charAt(0) === '5') {
+          return mastercardLogo;
+        }
+        if (cardNum.charAt(0) === '3') {
+          return amexLogo;
+        }
+        else return loremLogo
+      }
 
     useEffect(() => {
-        setProfileState(props);
+        setCardState(props);
     }, [props]);
 
     return (
         <CreditasCard>
-            <CreditasCardLogo src="https://loremipsum.io/assets/images/wasai-logo.png" alt="Logo">
+            <CreditasCardLogo src={loremLogo} alt="Logo"></CreditasCardLogo>
+            <CreditasCardLogo src={loremLogo} alt="Logo">
             </CreditasCardLogo>
             <CardNumber>{cardState.cardNumber}</CardNumber>
             <CardInfo>
