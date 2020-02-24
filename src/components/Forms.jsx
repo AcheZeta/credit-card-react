@@ -46,11 +46,15 @@ const Form = () => {
     });
 
     const handleInputChange = (event) => {
+        console.log(event.target.name, 'cardNumber')
         setState({
             ...state,
             [event.target.name]: event.target.value
         })
     }
+    const formatCreditNum = (cardNumber) => (
+        `${cardNumber.substring(0, 4)} **** **** ${cardNumber.substring(cardNumber.length - 4)}`
+    )
 
     return (
         <FormComponent>
@@ -60,7 +64,6 @@ const Form = () => {
                 name="cardNumber"
                 id="cardNumber"
                 placeholder="Card Number"
-                pattern="[0-9]*"
                 onChange={handleInputChange}
             />
             <CardInput
@@ -99,13 +102,13 @@ const Form = () => {
                 <option value="29">29</option>
                 <option value="30">30</option>
             </Cardselect>
-            {/* <CardInput 
-        type="password" 
-        name="CVV" 
-        id="ccv" 
-        placeholder="CCV"
-        onKeyUp={handleInputChange}
-        /> */}
+            <CardInput
+                type="password"
+                name="CVV"
+                id="ccv"
+                placeholder="CCV"
+                onKeyUp={handleInputChange}
+            />
         </FormComponent>
     )
 }
