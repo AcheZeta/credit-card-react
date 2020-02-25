@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import styled from 'styled-components'
-import visaLogo from '../assets/visaLogo.png'
-import mastercardLogo from '../assets/mastercardLogo.png'
-import amexLogo from '../assets/amexLogo.png'
-import loremLogo from '../assets/wasai-logo.png'
+// import visaLogo from '../assets/visaLogo.png'
+// import mastercardLogo from '../assets/mastercardLogo.png'
+// import amexLogo from '../assets/amexLogo.png'
+// import loremLogo from '../assets/wasai-logo.png'
 
 const CreditasCard = styled.div`
     display: inline-block;
@@ -43,28 +43,30 @@ const CardInfo = styled.div`
     padding: 15px;
     bottom: 5px;
 `
-const cardTypeLogo = {
-    'MASTERCARD': mastercardLogo,
-    'VISA': visaLogo,
-    'AMEX': amexLogo
-};
+// const cardTypeLogo = {
+//     'MASTERCARD': mastercardLogo,
+//     'VISA': visaLogo,
+//     'AMEX': amexLogo
+// };
 
 const Card = props => {
     const [cardState, setCardState] = useState(props);
-    console.log(cardState.cardNumber)
-
-    let notification = (cardNum) => {
-        if (cardNum.charAt(0) === '4') {
-          return visaLogo;
+    let cardNumbers = cardState.cardNumber
+    let cardType = (cardNumbers) => {
+        if (cardNumbers.charAt(0) === '4') {
+            console.log('visa')
+          return 'https://seeklogo.net/wp-content/uploads/2016/11/visa-logo-preview.png';
         }
-        if (cardNum.charAt(0) === '5') {
-          return mastercardLogo;
+        if (cardNumbers.charAt(0) === '5') {
+            console.log('mastercard')
+          return 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png';
         }
-        if (cardNum.charAt(0) === '3') {
-          return amexLogo;
+        if (cardNumbers.charAt(0) === '3') {
+            console.log('amex')
+          return 'https://i.ya-webdesign.com/images/american-express-logo-png-9.png';
         }
-        else return loremLogo
-      }
+        else return 'https://loremipsum.io/assets/images/wasai-logo.png'
+    }
 
     useEffect(() => {
         setCardState(props);
@@ -72,9 +74,7 @@ const Card = props => {
 
     return (
         <CreditasCard>
-            <CreditasCardLogo src={loremLogo} alt="Logo"></CreditasCardLogo>
-            <CreditasCardLogo src={loremLogo} alt="Logo">
-            </CreditasCardLogo>
+            <CreditasCardLogo src={cardType(cardNumbers)} alt="Logo"></CreditasCardLogo>
             <CardNumber>{cardState.cardNumber}</CardNumber>
             <CardInfo>
                 <CardInfoSection>
