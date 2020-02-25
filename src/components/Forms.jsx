@@ -38,7 +38,7 @@ const Cardselect = styled.select`
 
 const Form = () => {
     const [state, setState] = useState({
-        cardNumber: 'XXXX XXXX XXXX',
+        cardNumber: '**** **** ****',
         cardName: 'Lorem Ipsum',
         Month: 'Month',
         Year: 'Year',
@@ -46,15 +46,11 @@ const Form = () => {
     });
 
     const handleInputChange = (event) => {
-        console.log(event.target.name, 'cardNumber')
         setState({
             ...state,
             [event.target.name]: event.target.value
         })
     }
-    const formatCreditNum = (cardNumber) => (
-        `${cardNumber.substring(0, 4)} **** **** ${cardNumber.substring(cardNumber.length - 4)}`
-    )
 
     return (
         <FormComponent>

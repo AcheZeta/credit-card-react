@@ -43,29 +43,31 @@ const CardInfo = styled.div`
     padding: 15px;
     bottom: 5px;
 `
-// const cardTypeLogo = {
-//     'MASTERCARD': mastercardLogo,
-//     'VISA': visaLogo,
-//     'AMEX': amexLogo
-// };
 
 const Card = props => {
     const [cardState, setCardState] = useState(props);
     let cardNumbers = cardState.cardNumber
     let cardType = (cardNumbers) => {
         if (cardNumbers.charAt(0) === '4') {
-            console.log('visa')
           return 'https://seeklogo.net/wp-content/uploads/2016/11/visa-logo-preview.png';
         }
         if (cardNumbers.charAt(0) === '5') {
-            console.log('mastercard')
           return 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png';
         }
         if (cardNumbers.charAt(0) === '3') {
-            console.log('amex')
           return 'https://i.ya-webdesign.com/images/american-express-logo-png-9.png';
         }
         else return 'https://loremipsum.io/assets/images/wasai-logo.png'
+    }
+
+    const formattedCardumber = (cardNumber) => {
+        const newFormat = cardNumber.split('').reduce((card, currentNumber, index) => {
+          if (index > 3 && index < 12)
+            currentNumber = '*'
+          card = `${card}${currentNumber}`
+          return card
+        }, '')
+        return `${newFormat.slice(0,4)} ${newFormat.slice(4,8)}  ${newFormat.slice(4,8)}  ${newFormat.slice(8,12)}  ${newFormat.slice(12,16)}`
     }
 
     useEffect(() => {
@@ -75,11 +77,11 @@ const Card = props => {
     return (
         <CreditasCard>
             <CreditasCardLogo src={cardType(cardNumbers)} alt="Logo"></CreditasCardLogo>
-            <CardNumber>{cardState.cardNumber}</CardNumber>
+            <CardNumber>{formattedCardumber(cardNumbers)}</CardNumber>
             <CardInfo>
                 <CardInfoSection>
                     <CardInfoLabel>Card Holder</CardInfoLabel>
-                    <CardInformation>{cardState.cardName}</CardInformation>
+                    <CardInformation>{cardState.cardName.toUpperCase()}</CardInformation>
                 </CardInfoSection>
                 <CardInfoSection>
                     <CardInfoLabel>Expires</CardInfoLabel>
