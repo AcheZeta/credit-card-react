@@ -1,68 +1,79 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ⚛️💳 Credit Card Frontend Challenge
 
-## Available Scripts
+## 📌 Index
 
-In the project directory, you can run:
+- [About](#About) ℹ️
+- [Goals](#Goals) 📝
+- [Plans](#Plans) 📅
+- [Thoughts & Details](#Thoughts-&-Details) 📁
+- [Deploy](#Deploy) 🚀
+- [About Me](#About-Me) 👩‍💻
+- [Scripts & Test](#Scripts-&-Test) ✏️
 
-### `npm start`
+## 📝 About & Challenge
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This is an thecnical test for Front End Developers.
+I don't have limited time to finish it.  
+You can find the original repository [here](https://github.com/Creditas/mx_challenge_frontend)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### 🧑‍🎨 Layout
 
-### `npm test`
+- What to do?
+  - Re-create it similar card component.
+  - Layout the whole form from scratch.
+- How?
+  - You can use whatever you want.
+  - Use a methodology to name your classnames.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 🧑‍🔧 Functionality
 
-### `npm run build`
+- What to do?
+  - While the user is typing the card info, change it in the card layout.
+  - Stand out ( in the card layout ) the info that the user is typing.
+  - Detect the the financial entity with the first digits of the card number.
+- How to do it?
+  - Use React and some state manager.
+  - Make it like components, we are also checking the file structure.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 🤩 Extra Point
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+A good programmer always tests his code, so give it a chance to test your components.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Goals 📝
 
-### `npm run eject`
+For this challenge:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- I create a React App Project using _create-react-app_
+- I Use Eslint [Eslint Airbnb](https://github.com/airbnb/javascript).
+- I Use React Hooks ⚓
+- I use styled-components to style the application.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## How?. 📅
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- I decided to use `create-react-app` because in another test I set up a greenfield project using react, webpack, babel, Eslint and redux, but using create-react-app gave me more time to work on the functionality especially because my time was Limited by my work.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Thoughts & Details 📁
 
-## Learn More
+I really enjoyed this project, for this project files I analyze the challenge and divided it into parts.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+First, I created the folder for components and container.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Then, I created the files for each component: [Card.jsx](https://github.com/AcheZeta/credit-card-react/blob/develop/src/components/Card.jsx), [Container.jsx](https://github.com/AcheZeta/credit-card-react/blob/develop/src/components/Card.jsx) and [Form.jsx](https://github.com/AcheZeta/credit-card-react/blob/develop/src/components/Card.jsx).
 
-### Code Splitting
+In containers Folders: [app.jsx](https://github.com/AcheZeta/credit-card-react/blob/develop/src/containers/App.jsx)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-### Analyzing the Bundle Size
+### The State 
+I set a Initial State in Form Component
+```
+const [state, setState] = useState({
+        cardNumber: 'XXXX XXXX XXXX',
+        cardName: 'Lorem Ipsum',
+        Month: 'Month',
+        Year: 'Year',
+        CVV: 'CVV'
+    });
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+I use the form and SetState Hook to change the info in the Card.
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
