@@ -19,16 +19,16 @@ const CreditasCard = styled.div`
 }
 `
 const CreditasCardLogo = styled.img`
-    width: 50px;
+    width: 20%;
 `
 const CardInfoSection = styled.div`
-    font-size: 20px;
-`
-const CardInfoLabel = styled.div`
     font-size: 15px;
 `
+const CardInfoLabel = styled.div`
+    font-size: 12px;
+`
 const CardInformation = styled.div`
-    font-size: 20px;
+    font-size: 15px;
 `
 const CardNumber = styled.div`
     display: flex;
@@ -60,14 +60,15 @@ const Card = props => {
         else return 'https://loremipsum.io/assets/images/wasai-logo.png'
     }
 
-    const formattedCardumber = (cardNumber) => {
+    const formattedCardNum = (cardNumber) => {
         const newFormat = cardNumber.split('').reduce((card, currentNumber, index) => {
           if (index > 3 && index < 12)
             currentNumber = '*'
           card = `${card}${currentNumber}`
           return card
         }, '')
-        return `${newFormat.slice(0,4)} ${newFormat.slice(4,8)}  ${newFormat.slice(4,8)}  ${newFormat.slice(8,12)}  ${newFormat.slice(12,16)}`
+        let formattedCardNumber = `${newFormat.slice(0,4)} ${newFormat.slice(4,8)}  ${newFormat.slice(4,8)}  ${newFormat.slice(8,12)}  ${newFormat.slice(12,16)}`
+        return formattedCardNumber
     }
 
     useEffect(() => {
@@ -77,7 +78,7 @@ const Card = props => {
     return (
         <CreditasCard>
             <CreditasCardLogo src={cardType(cardNumbers)} alt="Logo"></CreditasCardLogo>
-            <CardNumber>{formattedCardumber(cardNumbers)}</CardNumber>
+            <CardNumber>{formattedCardNum(cardNumbers)}</CardNumber>
             <CardInfo>
                 <CardInfoSection>
                     <CardInfoLabel>Card Holder</CardInfoLabel>
