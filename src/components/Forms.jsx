@@ -18,9 +18,10 @@ const CardInput = styled.input`
     border-radius: 15px;
     font-size: 20px;
     text-transform: uppercase;
-    :focus {
-    border: 2px solid #00e67c;
-  }
+    transition: border-bottom-color .25s ease-in;
+    &:focus {
+    border-color: #00e67c;
+    }
 `
 const Cardselect = styled.select`
     width: 109%;
@@ -31,36 +32,37 @@ const Cardselect = styled.select`
     font-size: 20px;
     text-transform: uppercase;
     color: gray;
-    :focus {
-    border: 2px solid #00e67c;
-  }
+    &:focus {
+    border-color: #00e67c;
+    }
 `
 
 const Form = () => {
-    const [state, setState] = useState({
+    const [CardState, setState] = useState({
         cardNumber: '**** **** ****',
         cardName: 'Lorem Ipsum',
         Month: 'Month',
         Year: 'Year',
-        CVV: 'CVV'
+        CVV: 'CVV',
     });
 
     const handleInputChange = (event) => {
         setState({
-            ...state,
+            ...CardState,
             [event.target.name]: event.target.value
         })
     }
 
     return (
         <FormComponent>
-            <Card {...state} />
+            <Card {...CardState} />
             <CardInput
-                type="text"
+                type="tel"
                 name="cardNumber"
                 id="cardNumber"
                 placeholder="Card Number"
                 onChange={handleInputChange}
+                maxLength="16"
             />
             <CardInput
                 type="text"
