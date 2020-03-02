@@ -1,11 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import styled from 'styled-components'
-// import visaLogo from '../assets/visaLogo.png'
-// import mastercardLogo from '../assets/mastercardLogo.png'
-// import amexLogo from '../assets/amexLogo.png'
-// import loremLogo from '../assets/wasai-logo.png'
 
+// Create Styles With StyleComponets
 const CreditasCard = styled.div`
     display: inline-block;
     width: 340px;
@@ -19,21 +16,22 @@ const CreditasCard = styled.div`
 }
 `
 const CreditasCardLogo = styled.img`
-    width: 20%;
+    width: 50px;
 `
 const CardInfoSection = styled.div`
-    font-size: 15px;
+    font-size: 20px;
 `
 const CardInfoLabel = styled.div`
-    font-size: 12px;
+    font-size: 5px;
 `
 const CardInformation = styled.div`
     font-size: 15px;
 `
-const CardNumber = styled.div`
+const CardNumber = styled.span`
     display: flex;
     justify-content: center;
-    padding: 10%;
+    padding: 1%;
+    margin: 10%;
 `
 const CardInfo = styled.div`
     display: flex;
@@ -46,28 +44,31 @@ const CardInfo = styled.div`
 
 const Card = props => {
     const [cardState, setCardState] = useState(props);
+    
+    //Get the CardNumber to the State to show company and give it a credit card formmat.
     let cardNumbers = cardState.cardNumber
+    
     let cardType = (cardNumbers) => {
         if (cardNumbers.charAt(0) === '4') {
-          return 'https://seeklogo.net/wp-content/uploads/2016/11/visa-logo-preview.png';
+            return 'https://seeklogo.net/wp-content/uploads/2016/11/visa-logo-preview.png';
         }
         if (cardNumbers.charAt(0) === '5') {
-          return 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png';
+            return 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png';
         }
         if (cardNumbers.charAt(0) === '3') {
-          return 'https://i.ya-webdesign.com/images/american-express-logo-png-9.png';
+            return 'https://i.ya-webdesign.com/images/american-express-logo-png-9.png';
         }
         else return 'https://loremipsum.io/assets/images/wasai-logo.png'
     }
 
     const formattedCardNum = (cardNumber) => {
         const newFormat = cardNumber.split('').reduce((card, currentNumber, index) => {
-          if (index > 3 && index < 12)
-            currentNumber = '*'
-          card = `${card}${currentNumber}`
-          return card
+            if (index > 3 && index < 12)
+                currentNumber = '*'
+            card = `${card}${currentNumber}`
+            return card
         }, '')
-        let formattedCardNumber = `${newFormat.slice(0,4)} ${newFormat.slice(4,8)}  ${newFormat.slice(4,8)}  ${newFormat.slice(8,12)}  ${newFormat.slice(12,16)}`
+        let formattedCardNumber = `${newFormat.slice(0, 4)} ${newFormat.slice(4, 8)}  ${newFormat.slice(4, 8)}  ${newFormat.slice(8, 12)}  ${newFormat.slice(12, 16)}`
         return formattedCardNumber
     }
 
@@ -78,7 +79,9 @@ const Card = props => {
     return (
         <CreditasCard>
             <CreditasCardLogo src={cardType(cardNumbers)} alt="Logo"></CreditasCardLogo>
-            <CardNumber>{formattedCardNum(cardNumbers)}</CardNumber>
+            <CardInfoSection>
+                <CardNumber>{formattedCardNum(cardNumbers)}</CardNumber>
+            </CardInfoSection>
             <CardInfo>
                 <CardInfoSection>
                     <CardInfoLabel>Card Holder</CardInfoLabel>

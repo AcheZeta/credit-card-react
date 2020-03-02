@@ -2,7 +2,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import Card from '../components/Card'
-import useGetData from '../hooks/useGetData';
 
 const FormComponent = styled.div`
   display: grid;
@@ -20,9 +19,10 @@ const CardInput = styled.input`
     border-radius: 15px;
     font-size: 20px;
     text-transform: uppercase;
-    :focus {
-    border: 2px solid #00e67c;
-  }
+    transition: border-bottom-color .25s ease-in;
+    &:focus {
+    border-color: #00e67c;
+    }
 `
 const Cardselect = styled.select`
     width: 109%;
@@ -33,26 +33,32 @@ const Cardselect = styled.select`
     font-size: 20px;
     text-transform: uppercase;
     color: gray;
-    :focus {
-    border: 2px solid #00e67c;
-  }
+    &:focus {
+    border-color: #00e67c;
+    }
 `
 
 const Form = () => {
-    console.log(useGetData);
+    const [CardState, setState] = useState({
+        cardNumber: '**** **** ****',
+        cardName: 'Lorem Ipsum',
+        Month: 'Month',
+        Year: 'Year',
+        CVV: 'CVV',
+    });
 
-    // const handleInputChange = (event) => {
-    //     setState({
-    //         ...state,
-    //         [event.target.name]: event.target.value
-    //     })
-    // }
+    const handleInputChange = (event) => {
+        setState({
+            ...CardState,
+            [event.target.name]: event.target.value
+        })
+    }
 
     return (
         <FormComponent>
-            <Card {...state} />
+            <Card {...CardState} />
             <CardInput
-                type="text"
+                type="tel"
                 name="cardNumber"
                 id="cardNumber"
                 maxLength="16"
