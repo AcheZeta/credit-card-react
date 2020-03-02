@@ -12,9 +12,10 @@
 
 ## 📝 About & Challenge
 
-This is an thecnical test for Front End Developers.
-I don't have limited time to finish it.  
-You can find the original repository [here](https://github.com/Creditas/mx_challenge_frontend)
+This is an thecnical challenge for Front End Developers.
+Although there was no time limit to finish the test, my personal time was limited by my work.
+
+If you are interested, you can find the original repository [here](https://github.com/Creditas/mx_challenge_frontend)
 
 ### 🧑‍🎨 Layout
 

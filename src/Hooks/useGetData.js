@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React, {useState} from 'react'
-import Card from '../components/Card'
 
-const [state, setState] = useState({
+const useGetData = () => {
+  const [cardState, setState] = useState({
     cardNumber: 'XXX XXX XXX XXXX',
     cardName: '',
     Month: 0,
@@ -10,16 +10,7 @@ const [state, setState] = useState({
     CVV: ''
   });
 
-  const handleChange = () => {
-    setState({
-      CardNumber: "",
-      email: "vennila@gmail.com"
-    });
-  };
+  return cardState;
+};
 
-  return (
-    <div className="App">
-      <Card {...state} />
-    </div>
-  )
-
+export default useGetData

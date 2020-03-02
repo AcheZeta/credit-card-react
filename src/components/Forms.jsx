@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import Card from '../components/Card'
+import useGetData from '../hooks/useGetData';
 
 const FormComponent = styled.div`
   display: grid;
@@ -38,20 +39,14 @@ const Cardselect = styled.select`
 `
 
 const Form = () => {
-    const [state, setState] = useState({
-        cardNumber: '**** **** ****',
-        cardName: 'Lorem Ipsum',
-        Month: 'Month',
-        Year: 'Year',
-        CVV: 'CVV'
-    });
+    console.log(useGetData);
 
-    const handleInputChange = (event) => {
-        setState({
-            ...state,
-            [event.target.name]: event.target.value
-        })
-    }
+    // const handleInputChange = (event) => {
+    //     setState({
+    //         ...state,
+    //         [event.target.name]: event.target.value
+    //     })
+    // }
 
     return (
         <FormComponent>
