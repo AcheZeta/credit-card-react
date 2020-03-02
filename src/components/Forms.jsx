@@ -9,7 +9,8 @@ const FormComponent = styled.div`
   grid-column-gap: 2rem;
   grid-row-gap: 0.5em;
   justify-items: center;
-  padding: 1%;
+  padding: 3%;
+  background-color: white
 `
 const CardInput = styled.input`
     width: 100%;
@@ -60,9 +61,9 @@ const Form = () => {
                 type="tel"
                 name="cardNumber"
                 id="cardNumber"
+                maxLength="16"
                 placeholder="Card Number"
                 onChange={handleInputChange}
-                maxLength="16"
             />
             <CardInput
                 type="text"
