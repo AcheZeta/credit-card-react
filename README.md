@@ -53,27 +53,6 @@ const [state, setState] = useState({
 
 I use the form and SetState Hook to change the info in the Card.
 
-### Thoughts & Details 📁
-
-I really enjoyed this challenge, my biggest 'problem' was the time and some styles, but i enjoy work with react.
-
-In the [src folder](https://github.com/AcheZeta/credit-card-react/tree/master/src) I have the components and containers.
-
-
-I use `UseState` and `UseEffect` to manage the State. 
-```
-import { useState, useEffect } from 'react';
-
-const [CardState, setState] = useState({
-        cardNumber: '**** **** ****',
-        cardName: 'Lorem Ipsum',
-        Month: 'Month',
-        Year: 'Year',
-        CVV: 'CVV',
-    });
-};
-```
-
 ## Deploy. 🚀
 
 I use [Netlify](https://www.netlify.com/) to deploy.
