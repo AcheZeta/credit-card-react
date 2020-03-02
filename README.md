@@ -77,6 +77,7 @@ const [CardState, setState] = useState({
 ## Deploy. 🚀
 
 I use [Netlify](https://www.netlify.com/) to deploy.
+You can see the project <https://hamecreditcard.netlify.com/>
 
 
 ## About Me. 👩‍💻 
