@@ -90,8 +90,7 @@ I use [Netlify](https://www.netlify.com/) to deploy.
 ## Scripts & Test ✏️ 
 
 🍴 You can make your own copy of this repository and or download
-📦 Install the project dependencies with the `npm command
-   install`.
+📦 Install the project dependencies with the `npm install`.
 🚀 To see the interface of your program in the browser, use the command
    `npm start` to start the web server and go to your LocalHost. The page will reload if you make edits.
 
